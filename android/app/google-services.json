@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1027724653703",
+    "firebase_url": "https://flutter-architecture-e301a-default-rtdb.firebaseio.com",
+    "project_id": "flutter-architecture-e301a",
+    "storage_bucket": "flutter-architecture-e301a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1027724653703:android:056ba6327166b55a517422",
+        "android_client_info": {
+          "package_name": "com.example.stacked_architecture"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1027724653703-k863ch6ogebv8ejim2rvraarkrfd04ab.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOcgwcbO604r_Kn1CTShV0yQTqKvh6Hxw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1027724653703-k863ch6ogebv8ejim2rvraarkrfd04ab.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
