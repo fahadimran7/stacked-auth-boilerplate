@@ -34,12 +34,19 @@ class AuthenticationLayout extends StatelessWidget {
           ),
         ),
         verticalSpaceSmall,
-        Text(
-          subtitle,
-          style: const TextStyle(
-            fontSize: kfsBodyTextRegular,
-            color: kcGreyColor,
-          ),
+        Row(
+          children: [
+            SizedBox(
+              width: screenWidthPercentage(context, percentage: 0.85),
+              child: Text(
+                subtitle,
+                style: const TextStyle(
+                  fontSize: kfsBodyTextRegular,
+                  color: kcGreyColor,
+                ),
+              ),
+            ),
+          ],
         ),
         verticalSpaceRegular,
         form,

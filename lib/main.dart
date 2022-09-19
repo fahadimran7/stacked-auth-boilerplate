@@ -20,9 +20,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter Test Project',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        fontFamily: 'SFPro',
         primarySwatch: primaryBlack,
       ),
       navigatorKey: StackedService.navigatorKey,
