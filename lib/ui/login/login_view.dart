@@ -37,7 +37,6 @@ class LoginView extends StatelessWidget with $LoginView {
                 InputField(
                   controller: emailController,
                   label: 'Email',
-                  hint: 'Email',
                   keyboardType: TextInputType.emailAddress,
                   isPassword: false,
                 ),
@@ -45,7 +44,6 @@ class LoginView extends StatelessWidget with $LoginView {
                 InputField(
                   controller: passwordController,
                   label: 'Password',
-                  hint: 'Password',
                   keyboardType: TextInputType.visiblePassword,
                   isPassword: true,
                 ),

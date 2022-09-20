@@ -38,7 +38,6 @@ class CreateAccountView extends StatelessWidget with $CreateAccountView {
                 InputField(
                   controller: fullNameController,
                   label: 'Full Name',
-                  hint: 'Full Name',
                   keyboardType: TextInputType.text,
                   isPassword: false,
                 ),
@@ -46,7 +45,6 @@ class CreateAccountView extends StatelessWidget with $CreateAccountView {
                 InputField(
                   controller: emailController,
                   label: 'Email',
-                  hint: 'Email',
                   keyboardType: TextInputType.emailAddress,
                   isPassword: false,
                 ),
@@ -54,7 +52,6 @@ class CreateAccountView extends StatelessWidget with $CreateAccountView {
                 InputField(
                   controller: passwordController,
                   label: 'Password',
-                  hint: 'Password',
                   keyboardType: TextInputType.visiblePassword,
                   isPassword: true,
                 ),
