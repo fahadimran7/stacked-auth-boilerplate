@@ -9,9 +9,9 @@ import 'package:stacked_firebase_auth/stacked_firebase_auth.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 @StackedApp(routes: [
-  CupertinoRoute(page: StartupView),
+  CupertinoRoute(page: StartupView, initial: true),
   CupertinoRoute(page: SecondView),
-  CupertinoRoute(page: LoginView, initial: true),
+  CupertinoRoute(page: LoginView),
   CupertinoRoute(page: CreateAccountView),
 ], dependencies: [
   LazySingleton(classType: NavigationService),

@@ -17,9 +17,9 @@ import '../ui/second/second_view.dart';
 import '../ui/startup/startup_view.dart';
 
 class Routes {
-  static const String startupView = '/startup-view';
+  static const String startupView = '/';
   static const String secondView = '/second-view';
-  static const String loginView = '/';
+  static const String loginView = '/login-view';
   static const String createAccountView = '/create-account-view';
   static const all = <String>{
     startupView,
