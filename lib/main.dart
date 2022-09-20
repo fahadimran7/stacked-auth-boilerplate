@@ -21,9 +21,9 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Test Project',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        fontFamily: 'SFPro',
-        primarySwatch: primaryBlack,
-      ),
+          fontFamily: 'SFPro',
+          primarySwatch: primaryBlack,
+          scaffoldBackgroundColor: kcWhiteColor),
       navigatorKey: StackedService.navigatorKey,
       onGenerateRoute: StackedRouter().onGenerateRoute,
     );

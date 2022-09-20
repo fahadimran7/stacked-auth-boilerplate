@@ -63,8 +63,11 @@ class StackedRouter extends RouterBase {
       );
     },
     CreateAccountView: (data) {
+      var args = data.getArgs<CreateAccountViewArguments>(
+        orElse: () => CreateAccountViewArguments(),
+      );
       return CupertinoPageRoute<dynamic>(
-        builder: (context) => const CreateAccountView(),
+        builder: (context) => CreateAccountView(key: args.key),
         settings: data,
       );
     },
@@ -79,6 +82,12 @@ class StackedRouter extends RouterBase {
 class LoginViewArguments {
   final Key? key;
   LoginViewArguments({this.key});
+}
+
+/// CreateAccountView arguments holder class
+class CreateAccountViewArguments {
+  final Key? key;
+  CreateAccountViewArguments({this.key});
 }
 
 /// ************************************************************************
@@ -137,6 +146,7 @@ extension NavigatorStateExtension on NavigationService {
   }
 
   Future<dynamic> navigateToCreateAccountView({
+    Key? key,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -145,6 +155,7 @@ extension NavigatorStateExtension on NavigationService {
   }) async {
     return navigateTo(
       Routes.createAccountView,
+      arguments: CreateAccountViewArguments(key: key),
       id: routerId,
       preventDuplicates: preventDuplicates,
       parameters: parameters,

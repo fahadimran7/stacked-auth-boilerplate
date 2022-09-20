@@ -16,7 +16,8 @@ class AuthenticationLayout extends StatelessWidget {
       required this.showTermsText,
       this.validationMessage,
       this.onMainButtonTapped,
-      required this.isModelBusy})
+      required this.isModelBusy,
+      this.onBackPressed})
       : super(key: key);
   final String title;
   final String subtitle;
@@ -27,6 +28,7 @@ class AuthenticationLayout extends StatelessWidget {
   final Widget form;
   final void Function()? onCreateAccountTapped;
   final void Function()? onMainButtonTapped;
+  final void Function()? onBackPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +36,14 @@ class AuthenticationLayout extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: kpBodyPaddingHorizontal),
       children: [
         verticalSpaceLarge,
+        if (onBackPressed != null)
+          Row(
+            children: [
+              IconButton(
+                  onPressed: onBackPressed,
+                  icon: const Icon(Icons.arrow_back_ios)),
+            ],
+          ),
         verticalSpaceMedium,
         AppText.headingOne(title),
         verticalSpaceSmall,

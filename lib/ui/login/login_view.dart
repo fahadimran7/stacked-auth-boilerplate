@@ -26,7 +26,7 @@ class LoginView extends StatelessWidget with $LoginView {
           mainButtonTitle: 'SIGN IN',
           showTermsText: false,
           validationMessage: model.validationMessage,
-          onCreateAccountTapped: () {},
+          onCreateAccountTapped: model.navigateToCreateAccount,
           onMainButtonTapped: model.saveData,
           isModelBusy: model.isBusy,
           form: Form(
