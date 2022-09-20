@@ -17,5 +17,9 @@ class CreateAccountViewModel extends AuthenticationViewModel {
         password: passwordValue!,
       );
 
-  void navigateBack() => navigationService.back();
+  void navigateBack() {
+    setValidationMessage(null);
+    notifyListeners();
+    navigationService.back();
+  }
 }

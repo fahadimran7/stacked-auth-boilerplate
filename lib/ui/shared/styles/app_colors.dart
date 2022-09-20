@@ -17,5 +17,6 @@ const MaterialColor primaryBlack = MaterialColor(
   },
 );
 const int kcPrimaryColor = 0xFF000000;
+const Color kcLightGreyColor = Color.fromARGB(255, 245, 245, 245);
 const Color kcGreyColor = Colors.black54;
 const Color kcWhiteColor = Colors.white;

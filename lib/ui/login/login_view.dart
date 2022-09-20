@@ -4,6 +4,7 @@ import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_architecture/ui/dumb_widgets/authentication_layout.dart';
 import 'package:stacked_architecture/ui/login/login_viewmodel.dart';
 import 'package:stacked_architecture/ui/shared/styles/ui_helpers.dart';
+import 'package:stacked_architecture/ui/shared/widgets/input_field.dart';
 import 'login_view.form.dart';
 
 @FormView(fields: [
@@ -29,18 +30,24 @@ class LoginView extends StatelessWidget with $LoginView {
           onCreateAccountTapped: model.navigateToCreateAccount,
           onMainButtonTapped: model.saveData,
           isModelBusy: model.isBusy,
+          onSignInWithGoogle: model.useGoogleAuthentication,
           form: Form(
             child: Column(
               children: [
-                TextFormField(
-                  decoration: const InputDecoration(labelText: 'Email'),
+                InputField(
                   controller: emailController,
+                  label: 'Email',
+                  hint: 'Email',
+                  keyboardType: TextInputType.emailAddress,
+                  isPassword: false,
                 ),
-                verticalSpaceSmall,
-                TextFormField(
-                  decoration: const InputDecoration(labelText: 'Password'),
+                verticalSpaceRegular,
+                InputField(
                   controller: passwordController,
-                  obscureText: true,
+                  label: 'Password',
+                  hint: 'Password',
+                  keyboardType: TextInputType.visiblePassword,
+                  isPassword: true,
                 ),
               ],
             ),

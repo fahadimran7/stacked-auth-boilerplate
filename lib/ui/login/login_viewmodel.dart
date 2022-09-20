@@ -19,6 +19,8 @@ class LoginViewModel extends AuthenticationViewModel {
   }
 
   void navigateToCreateAccount() {
+    setValidationMessage(null);
+    notifyListeners();
     navigationService.navigateTo(Routes.createAccountView);
   }
 }

@@ -4,6 +4,7 @@ import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_architecture/ui/create_account/create_account_viewmodel.dart';
 import 'package:stacked_architecture/ui/dumb_widgets/authentication_layout.dart';
 import 'package:stacked_architecture/ui/shared/styles/ui_helpers.dart';
+import 'package:stacked_architecture/ui/shared/widgets/input_field.dart';
 import 'create_account_view.form.dart';
 
 @FormView(fields: [
@@ -30,22 +31,32 @@ class CreateAccountView extends StatelessWidget with $CreateAccountView {
           validationMessage: model.validationMessage,
           onMainButtonTapped: model.saveData,
           onBackPressed: model.navigateBack,
+          onSignInWithGoogle: model.useGoogleAuthentication,
           form: Form(
             child: Column(
               children: [
-                TextFormField(
-                  decoration: const InputDecoration(labelText: 'Full Name'),
+                InputField(
                   controller: fullNameController,
+                  label: 'Full Name',
+                  hint: 'Full Name',
+                  keyboardType: TextInputType.text,
+                  isPassword: false,
                 ),
-                TextFormField(
-                  decoration: const InputDecoration(labelText: 'Email'),
+                verticalSpaceRegular,
+                InputField(
                   controller: emailController,
+                  label: 'Email',
+                  hint: 'Email',
+                  keyboardType: TextInputType.emailAddress,
+                  isPassword: false,
                 ),
-                verticalSpaceSmall,
-                TextFormField(
-                  decoration: const InputDecoration(labelText: 'Password'),
+                verticalSpaceRegular,
+                InputField(
                   controller: passwordController,
-                  obscureText: true,
+                  label: 'Password',
+                  hint: 'Password',
+                  keyboardType: TextInputType.visiblePassword,
+                  isPassword: true,
                 ),
               ],
             ),

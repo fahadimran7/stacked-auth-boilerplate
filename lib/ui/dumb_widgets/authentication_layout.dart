@@ -4,6 +4,7 @@ import 'package:stacked_architecture/ui/shared/styles/styles.dart';
 import 'package:stacked_architecture/ui/shared/styles/ui_helpers.dart';
 import 'package:stacked_architecture/ui/shared/widgets/app_text.dart';
 import 'package:stacked_architecture/ui/shared/widgets/busy_button.dart';
+import 'package:auth_buttons/auth_buttons.dart';
 
 class AuthenticationLayout extends StatelessWidget {
   const AuthenticationLayout(
@@ -17,7 +18,8 @@ class AuthenticationLayout extends StatelessWidget {
       this.validationMessage,
       this.onMainButtonTapped,
       required this.isModelBusy,
-      this.onBackPressed})
+      this.onBackPressed,
+      this.onSignInWithGoogle})
       : super(key: key);
   final String title;
   final String subtitle;
@@ -29,6 +31,7 @@ class AuthenticationLayout extends StatelessWidget {
   final void Function()? onCreateAccountTapped;
   final void Function()? onMainButtonTapped;
   final void Function()? onBackPressed;
+  final void Function()? onSignInWithGoogle;
 
   @override
   Widget build(BuildContext context) {
@@ -40,11 +43,12 @@ class AuthenticationLayout extends StatelessWidget {
           Row(
             children: [
               IconButton(
-                  onPressed: onBackPressed,
-                  icon: const Icon(Icons.arrow_back_ios)),
+                onPressed: onBackPressed,
+                icon: const Icon(Icons.arrow_back_ios),
+              ),
             ],
           ),
-        verticalSpaceMedium,
+        verticalSpaceSmall,
         AppText.headingOne(title),
         verticalSpaceSmall,
         Row(
@@ -55,7 +59,7 @@ class AuthenticationLayout extends StatelessWidget {
             ),
           ],
         ),
-        verticalSpaceRegular,
+        verticalSpaceMedium,
         form,
         verticalSpaceMedium,
         if (validationMessage != null)
@@ -63,7 +67,7 @@ class AuthenticationLayout extends StatelessWidget {
             validationMessage!,
             color: Colors.red,
           ),
-        if (validationMessage != null) verticalSpaceRegular,
+        if (validationMessage != null) verticalSpaceMedium,
         BusyButton(
             mainButtonTitle: mainButtonTitle,
             onPressed: onMainButtonTapped,
@@ -72,7 +76,20 @@ class AuthenticationLayout extends StatelessWidget {
         if (onCreateAccountTapped != null)
           _buildCreateAccountRow(onCreateAccountTapped),
         if (showTermsText) verticalSpaceRegular,
-        if (showTermsText) _buildTermsText(context)
+        if (showTermsText) _buildTermsText(context),
+        verticalSpaceRegular,
+        Align(alignment: Alignment.center, child: AppText.body('Or')),
+        verticalSpaceRegular,
+        GoogleAuthButton(
+          onPressed: onSignInWithGoogle ?? () {},
+          text: 'CONTINUE WITH GOOGLE',
+          style: const AuthButtonStyle(
+            buttonType: AuthButtonType.secondary,
+            textStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+            iconSize: 24,
+            height: 50,
+          ),
+        ),
       ],
     );
   }
