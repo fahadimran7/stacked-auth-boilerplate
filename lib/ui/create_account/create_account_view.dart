@@ -10,13 +10,14 @@ class CreateAccountView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<CreateAccountViewModel>.reactive(
-      viewModelBuilder: () => CreateAccountViewModel(),
+      viewModelBuilder: () => CreateAccountViewModel(successRoute: ''),
       builder: (context, model, child) => Scaffold(
         body: AuthenticationLayout(
           title: 'Create Account',
           subtitle: 'Enter your name, email address and password for sign up.',
           mainButtonTitle: 'CONTINUE',
           showTermsText: true,
+          isModelBusy: model.isBusy,
           form: Form(
             child: Column(
               children: [
@@ -29,6 +30,7 @@ class CreateAccountView extends StatelessWidget {
                 verticalSpaceSmall,
                 TextFormField(
                   decoration: const InputDecoration(labelText: 'Password'),
+                  obscureText: true,
                 ),
               ],
             ),

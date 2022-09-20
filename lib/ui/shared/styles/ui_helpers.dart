@@ -16,9 +16,6 @@ const Widget horizontalSpaceMedium = SizedBox(
 const Widget horizontalSpaceLarge = SizedBox(
   width: 50.0,
 );
-const Widget horizontalSpaceExtraLarge = SizedBox(
-  width: 80.0,
-);
 
 // Vertical space
 const Widget verticalSpaceTiny = SizedBox(
@@ -35,9 +32,6 @@ const Widget verticalSpaceMedium = SizedBox(
 );
 const Widget verticalSpaceLarge = SizedBox(
   height: 50.0,
-);
-const Widget verticalSpaceExtraLarge = SizedBox(
-  height: 80.0,
 );
 
 // Screen size helpers

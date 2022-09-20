@@ -13,21 +13,28 @@ class AuthenticationLayout extends StatelessWidget {
       required this.mainButtonTitle,
       required this.form,
       this.onCreateAccountTapped,
-      required this.showTermsText})
+      required this.showTermsText,
+      this.validationMessage,
+      this.onMainButtonTapped,
+      required this.isModelBusy})
       : super(key: key);
   final String title;
   final String subtitle;
   final String mainButtonTitle;
+  final String? validationMessage;
   final bool showTermsText;
+  final bool isModelBusy;
   final Widget form;
   final void Function()? onCreateAccountTapped;
+  final void Function()? onMainButtonTapped;
 
   @override
   Widget build(BuildContext context) {
     return ListView(
       padding: const EdgeInsets.symmetric(horizontal: kpBodyPaddingHorizontal),
       children: [
-        verticalSpaceExtraLarge,
+        verticalSpaceLarge,
+        verticalSpaceMedium,
         AppText.headingOne(title),
         verticalSpaceSmall,
         Row(
@@ -41,7 +48,16 @@ class AuthenticationLayout extends StatelessWidget {
         verticalSpaceRegular,
         form,
         verticalSpaceMedium,
-        BusyButton(mainButtonTitle: mainButtonTitle),
+        if (validationMessage != null)
+          AppText.body(
+            validationMessage!,
+            color: Colors.red,
+          ),
+        if (validationMessage != null) verticalSpaceRegular,
+        BusyButton(
+            mainButtonTitle: mainButtonTitle,
+            onPressed: onMainButtonTapped,
+            busy: isModelBusy),
         if (onCreateAccountTapped != null) verticalSpaceRegular,
         if (onCreateAccountTapped != null)
           _buildCreateAccountRow(onCreateAccountTapped),

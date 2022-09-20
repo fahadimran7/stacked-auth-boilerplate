@@ -54,8 +54,11 @@ class StackedRouter extends RouterBase {
       );
     },
     LoginView: (data) {
+      var args = data.getArgs<LoginViewArguments>(
+        orElse: () => LoginViewArguments(),
+      );
       return CupertinoPageRoute<dynamic>(
-        builder: (context) => const LoginView(),
+        builder: (context) => LoginView(key: args.key),
         settings: data,
       );
     },
@@ -66,6 +69,16 @@ class StackedRouter extends RouterBase {
       );
     },
   };
+}
+
+/// ************************************************************************
+/// Arguments holder classes
+/// *************************************************************************
+
+/// LoginView arguments holder class
+class LoginViewArguments {
+  final Key? key;
+  LoginViewArguments({this.key});
 }
 
 /// ************************************************************************
@@ -106,6 +119,7 @@ extension NavigatorStateExtension on NavigationService {
   }
 
   Future<dynamic> navigateToLoginView({
+    Key? key,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -114,6 +128,7 @@ extension NavigatorStateExtension on NavigationService {
   }) async {
     return navigateTo(
       Routes.loginView,
+      arguments: LoginViewArguments(key: key),
       id: routerId,
       preventDuplicates: preventDuplicates,
       parameters: parameters,
