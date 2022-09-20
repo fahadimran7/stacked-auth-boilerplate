@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:stacked_architecture/ui/shared/styles/styles.dart';
+import 'package:stacked_architecture/ui/shared/styles/app_colors.dart';
+import 'package:stacked_architecture/ui/shared/widgets/app_text.dart';
 
 class BusyButton extends StatelessWidget {
   const BusyButton({Key? key, required this.mainButtonTitle}) : super(key: key);
@@ -15,12 +16,10 @@ class BusyButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(6),
         ),
       ),
-      child: Text(
+      child: AppText.bodySmall(
         mainButtonTitle,
-        style: const TextStyle(
-          fontSize: kfsBodyTextSmall,
-          color: kcWhiteColor,
-        ),
+        color: kcWhiteColor,
+        fontWeight: FontWeight.w500,
       ),
     );
   }

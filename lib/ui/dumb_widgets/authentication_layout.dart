@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:stacked_architecture/ui/shared/styles/app_colors.dart';
 import 'package:stacked_architecture/ui/shared/styles/styles.dart';
 import 'package:stacked_architecture/ui/shared/styles/ui_helpers.dart';
+import 'package:stacked_architecture/ui/shared/widgets/app_text.dart';
 import 'package:stacked_architecture/ui/shared/widgets/busy_button.dart';
 
 class AuthenticationLayout extends StatelessWidget {
@@ -26,25 +28,13 @@ class AuthenticationLayout extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: kpBodyPaddingHorizontal),
       children: [
         verticalSpaceExtraLarge,
-        Text(
-          title,
-          style: const TextStyle(
-            fontSize: kfsH1Title,
-            fontWeight: FontWeight.w400,
-          ),
-        ),
+        AppText.headingOne(title),
         verticalSpaceSmall,
         Row(
           children: [
             SizedBox(
               width: screenWidthPercentage(context, percentage: 0.85),
-              child: Text(
-                subtitle,
-                style: const TextStyle(
-                  fontSize: kfsBodyTextRegular,
-                  color: kcGreyColor,
-                ),
-              ),
+              child: AppText.body(subtitle),
             ),
           ],
         ),
@@ -67,23 +57,13 @@ _buildCreateAccountRow(void Function()? onCreateAccountTapped) {
     onTap: onCreateAccountTapped,
     child: Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
-        Text(
-          'Don\'t have account?',
-          style: TextStyle(
-            fontSize: kfsBodyTextSmall,
-            color: kcGreyColor,
-          ),
-        ),
+      children: [
+        AppText.bodySmall('Don\'t have account?'),
         horizontalSpaceTiny,
-        Text(
+        AppText.bodySmall(
           'Create new account',
-          style: TextStyle(
-            fontSize: kfsBodyTextSmall,
-            color: primaryBlack,
-            fontWeight: FontWeight.w400,
-          ),
-        )
+          color: primaryBlack,
+        ),
       ],
     ),
   );
@@ -93,13 +73,9 @@ _buildTermsText(BuildContext context) {
   return Center(
     child: SizedBox(
       width: screenWidthPercentage(context, percentage: 0.85),
-      child: const Text(
+      child: AppText.body(
         'By Signing up you agree to our Terms Conditions & Privacy Policy.',
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          color: kcGreyColor,
-          fontSize: kfsBodyTextRegular,
-        ),
+        align: TextAlign.center,
       ),
     ),
   );
