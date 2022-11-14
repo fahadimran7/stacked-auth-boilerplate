@@ -1,6 +1,6 @@
-# stacked_architecture
+# Stacked Auth Boilerplate
 
-A new Flutter project.
+![](./auth_pattern.jpeg)
 
 ## Getting Started
 
