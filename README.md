@@ -1,16 +1,17 @@
-# stacked_architecture
+# Stacked Auth Boilerplate
 
-A new Flutter project.
+> Template for creating Flutter apps with Firebase auth and stacked mvvm architecture.
 
-## Getting Started
+## Setup
 
-This project is a starting point for a Flutter application.
+```bash
+# clone the repo
+$ git clone https://github.com/fahadimran7/stacked-auth-boilerplate.git
+$ cd stacked-auth-boilerplate
 
-A few resources to get you started if this is your first Flutter project:
+# install dependencies
+$ flutter pub get
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# run app
+$ flutter run
+```
